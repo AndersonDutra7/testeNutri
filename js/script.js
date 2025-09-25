@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Detecta se a página atual está dentro da pasta /pages/
+  const basePath = window.location.pathname.includes("/pages/") ? "../" : "./";
+
   // Função para inicializar acessibilidade
   function initAcessibilidade() {
     const toggleBtn = document.getElementById("acessibilidade-toggle");
@@ -39,9 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!slides.length || !carousel || !prevBtn || !nextBtn) return;
 
     const fundos = [
-      "img/nutri.png",
-      "img/carrousel4.jpg",
-      "img/carrousel2.jpg",
+      `${basePath}img/nutri.png`,
+      `${basePath}img/carrousel4.jpg`,
+      `${basePath}img/carrousel2.jpg`,
     ];
     let indice = 0;
 
@@ -64,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Carrega footer
-  fetch("partials/footer.html")
+  fetch(`${basePath}partials/footer.html`)
     .then((res) => res.text())
     .then((data) => {
       document.getElementById("footer").innerHTML = data;
@@ -72,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((err) => console.error("Erro ao carregar footer:", err));
 
   // Carrega header
-  fetch("partials/header.html")
+  fetch(`${basePath}partials/header.html`)
     .then((res) => res.text())
     .then((data) => {
       document.getElementById("header").innerHTML = data;
