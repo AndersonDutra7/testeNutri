@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Carrega footer
-  fetch("../partials/footer.html")
+  fetch("partials/footer.html")
     .then((res) => res.text())
     .then((data) => {
       document.getElementById("footer").innerHTML = data;
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((err) => console.error("Erro ao carregar footer:", err));
 
   // Carrega header
-  fetch("../partials/header.html")
+  fetch("partials/header.html")
     .then((res) => res.text())
     .then((data) => {
       document.getElementById("header").innerHTML = data;
